@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7138585e74d470349b528b1b42ebb38b, type: 3}
+  m_Name: Spear
+  m_EditorClassIdentifier: 
+  Id: 0
+  uiDiplay: {fileID: 0}
+  type: 1
+  description: This will be flaming hot and will burn enemies.
+  buffs:
+  - attribute: 3
+    value: 0
+    min: 10
+    max: 21
+  atkBonus: 0
+  defenceBonus: 0
