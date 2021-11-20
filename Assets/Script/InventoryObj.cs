@@ -6,14 +6,22 @@ using System.IO;
 using UnityEditor;
 using System.Runtime.Serialization;
 
+
+//Author : Nguyen  Huu Hung Long
+//Last modify date : 20/11/2021
+//Display and Update inventory on screen , Handing inventory item swaping.
+//Scriptable object 
+//Held by Scriptable Object in project tab Assets/Inven/Player Inventory
+
+
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObj : ScriptableObject
 {
     public string savePath;
-    public ItemDatabaseObject database;
-    public Inventory Container;
+    public ItemDatabaseObject database; //ItemDatabaseObject Script reference
+    public Inventory Container; //Inventory Script reference
 
-
+    //Handle adding item into empty slot
     public void AddItem(Item _item, int _amount)
     {
         if (_item.buffs.Length > 0)
@@ -21,7 +29,7 @@ public class InventoryObj : ScriptableObject
             SetEmptySlot(_item, _amount);
             return;
         }
-
+        //If inventory still have slot add item in
         for (int i = 0; i < Container.Items.Length; i++)
         {
             if (Container.Items[i].ID == _item.Id)
@@ -33,6 +41,7 @@ public class InventoryObj : ScriptableObject
         SetEmptySlot(_item, _amount);
 
     }
+    //Setup inventory after being spawn in || mostly for saving
     public InventorySlot SetEmptySlot(Item _item, int _amount)
     {
         for (int i = 0; i < Container.Items.Length; i++)
@@ -47,14 +56,18 @@ public class InventoryObj : ScriptableObject
         return null;
     }
 
+    //Handle swaping 2 item slot
     public void MoveItem(InventorySlot item1, InventorySlot item2)
     {
+        //Create a temp slot for moving items
         InventorySlot temp = new InventorySlot(item2.ID, item2.item, item2.amount);
+        //item2 = item 1 
         item2.UpdateSlot(item1.ID, item1.item, item1.amount);
+        //item 1 = temp item
         item1.UpdateSlot(temp.ID, temp.item, temp.amount);
     }
 
-
+    //Handle removing item
     public void RemoveItem(Item _item)
     {
         for (int i = 0; i < Container.Items.Length; i++)

@@ -343,8 +343,8 @@ MonoBehaviour:
   X_START: -140
   Y_START: 100
   X_SPACE_BETWEEN_ITEM: 70
-  NUMBER_OF_COLUMN: 5
   Y_SPACE_BETWEEN_ITEMS: 70
+  NUMBER_OF_COLUMN: 5
 --- !u!114 &164460416
 MonoBehaviour:
   m_ObjectHideFlags: 0
